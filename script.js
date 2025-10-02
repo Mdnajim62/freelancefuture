@@ -58,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 clearInterval(interval);
                 countdownEl.textContent = "অফার শেষ";
                 if(priceEl) priceEl.textContent = "499";
-                // Optionally disable CTAs
                 document.querySelectorAll('.cta-button').forEach(btn => {
                     btn.style.background = '#9ca3af';
                     btn.style.pointerEvents = 'none';
@@ -130,7 +129,6 @@ document.addEventListener('DOMContentLoaded', function() {
    
     // --- INITIALIZATION ---
     startCountdown();
-    // Check for a previously failed submission
     if (localStorage.getItem('failed_submission')) {
         paymentWrapper.style.display = 'none';
         fallbackPanel.style.display = 'block';
