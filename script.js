@@ -3,8 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- CONFIGURATION ---
     const WHATSAPP_NUMBER = "8801829994457";
     const COUNTDOWN_DURATION = (2 * 3600 + 37 * 60 + 59) * 1000;
-    // IMPORTANT: You MUST replace this with a real endpoint for the form to work.
-    // For GitHub pages, you can use a service like Formspree, Getform, or a serverless function.
     const FORM_ACTION_URL = "REPLACE_WITH_YOUR_FORM_ENDPOINT_URL"; 
 
     // --- ELEMENTS ---
@@ -17,6 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const fallbackPanel = document.getElementById('fallback-panel');
     const whatsappSupportSuccess = document.getElementById('whatsapp-support-link-success');
     const whatsappSupportFallback = document.getElementById('whatsapp-support-link-fallback');
+    const videoModal = document.getElementById('video-modal');
+    const videoIframe = document.getElementById('youtube-video');
+    const closeModalButton = document.querySelector('.close-button');
+    const videoPlayTrigger = document.querySelector('.video-testimonial');
 
     // --- SMOOTH SCROLL FOR CTA ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -85,6 +87,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 item.classList.add('active');
             }
         });
+    });
+    
+    // --- VIDEO MODAL LOGIC ---
+    if (videoPlayTrigger) {
+        videoPlayTrigger.addEventListener('click', () => {
+            const videoId = videoPlayTrigger.getAttribute('data-video-id');
+            if (videoId && videoModal && videoIframe) {
+                videoIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                videoModal.style.display = 'block';
+            }
+        });
+    }
+
+    function closeModal() {
+        if(videoModal && videoIframe) {
+            videoModal.style.display = 'none';
+            videoIframe.src = ''; // Stop the video
+        }
+    }
+
+    if (closeModalButton) {
+        closeModalButton.addEventListener('click', closeModal);
+    }
+
+    window.addEventListener('click', (event) => {
+        if (event.target == videoModal) {
+            closeModal();
+        }
     });
 
     // --- FORM SUBMISSION LOGIC ---
