@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const videoModal = document.getElementById('video-modal');
     const videoIframe = document.getElementById('youtube-video');
     const closeModalButton = document.querySelector('.close-button');
-    const videoPlayTrigger = document.querySelector('.video-testimonial');
+    const videoPlayTriggers = document.querySelectorAll('.video-testimonial'); // Changed to querySelectorAll
 
     // --- SMOOTH SCROLL FOR CTA ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -90,13 +90,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // --- VIDEO MODAL LOGIC ---
-    if (videoPlayTrigger) {
-        videoPlayTrigger.addEventListener('click', () => {
-            const videoId = videoPlayTrigger.getAttribute('data-video-id');
-            if (videoId && videoModal && videoIframe) {
-                videoIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-                videoModal.style.display = 'block';
-            }
+    if (videoPlayTriggers.length > 0) {
+        videoPlayTriggers.forEach(trigger => {
+            trigger.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent default link behavior if it's an anchor
+                const videoId = trigger.getAttribute('data-video-id');
+                if (videoId && videoModal && videoIframe) {
+                    videoIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                    videoModal.style.display = 'block';
+                }
+            });
         });
     }
 
