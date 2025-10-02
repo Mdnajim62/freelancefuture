@@ -48,12 +48,13 @@ section { padding: 80px 0; }
 .cta-button:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 8px 30px rgba(249, 115, 22, 0.7), 0 0 20px rgba(245, 158, 11, 0.5) inset; }
 
 /* --- QUICK BENEFITS --- */
-.quick-benefits-section { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; padding-top: 60px; padding-bottom: 60px; background-color: var(--bg-color); }
-.benefit-item { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 1.1rem; color: var(--primary-color); }
+.quick-benefits-section { padding: 40px 0; background-color: var(--bg-light); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+.benefit-container { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 30px; }
+.benefit-item { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 1.1rem; color: var(--primary-color); background-color: #fff; padding: 10px 20px; border-radius: 30px; border: 1px solid var(--border-color); box-shadow: 0 2px 8px rgba(0,0,0,0.05);}
 .benefit-item svg { color: var(--success-color); }
 
 /* --- PROBLEM SECTION --- */
-.problem-section { background-color: var(--bg-light); }
+.problem-section { background-color: var(--bg-color); }
 .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
 .problem-card { background: var(--card-bg); padding: 30px; border-radius: 12px; text-align: center; border: 1px solid var(--border-color); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
 .problem-card h3 { font-size: 1.25rem; color: var(--error-color); margin-bottom: 15px; }
@@ -127,19 +128,14 @@ section { padding: 80px 0; }
 .faq-answer p { padding: 0 20px 20px; }
 .faq-item.active .faq-answer { max-height: 200px; }
 
+/* --- VIDEO MODAL --- */
+.video-modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.modal-content { position: relative; margin: 5% auto; padding: 20px; width: 90%; max-width: 800px; background: #000; border-radius: 8px; animation: slideIn 0.4s ease; }
+@keyframes slideIn { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.close-button { position: absolute; top: -35px; right: -5px; color: #fff; font-size: 45px; font-weight: bold; cursor: pointer; }
+.video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+.video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
 /* --- FOOTER --- */
 footer { background: #e5e7eb; text-align: center; padding: 30px 20px; font-size: 0.9rem; }
-
-/* --- Media Queries for Responsive Design --- */
-@media (min-width: 768px) {
-    .hero-content { padding: 40px; }
-    .payment-logos-hero img { height: 35px; }
-    .middle-cta { margin: 60px auto 0; }
-    .quick-benefits-section { gap: 50px; }
-}
-
-@media (min-width: 992px) {
-    .hero-content { padding: 50px; }
-    .payment-logos-hero img { height: 40px; }
-    .middle-cta { margin: 80px auto 0; }
-}
