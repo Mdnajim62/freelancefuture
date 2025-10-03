@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Your Order! - Freelance Future</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=SolaimanLipi&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f8fafc;
+        }
+        .thank-you-card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 600px;
+            margin: 20px;
+            border-top: 5px solid #16a34a;
+        }
+        .thank-you-card h1 {
+            color: #16a34a;
+            font-family: 'SolaimanLipi', serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .thank-you-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        .whatsapp-support-link {
+            display: inline-block;
+            padding: 14px 28px;
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .whatsapp-support-link:hover {
+            transform: scale(1.05);
+        }
+    </style>
+
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1281602070374053');
+    fbq('track', 'PageView');
+    // IMPORTANT: Purchase Event for Sales Tracking
+    fbq('track', 'Purchase', {value: 199.00, currency: 'BDT'});
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1281602070374053&ev=PageView&noscript=1"
+    /></noscript>
+    </head>
+<body>
+    <div class="thank-you-card">
+        <h1>🎉 অভিনন্দন!</h1>
+        <p>আপনার অর্ডারটি সফলভাবে নিশ্চিত করা হয়েছে। আপনার প্রদত্ত <strong>Email Address</strong> অথবা <strong>WhatsApp</strong>-এ আগামী ১০-৩০ মিনিটের মধ্যে কোর্স অ্যাক্সেস লিংক চলে যাবে। অনুগ্রহ করে আপনার ইনবক্স এবং Spam/Junk ফোল্ডার চেক করুন।</p>
+        <a href="https://wa.me/8801829994457" class="whatsapp-support-link" target="_blank">জরুরী প্রয়োজনে WhatsApp করুন</a>
+    </div>
+</body>
+</html>
