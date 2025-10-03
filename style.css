@@ -41,7 +41,7 @@ section { padding: 80px 0; }
     overflow: hidden; 
     background-color: var(--bg-dark);
     /* New Hero Background Image from your provided URL */
-    background-image: linear-gradient(to bottom, rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 1)), url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRKHsockHHB9uG6QGQj8lgglohV85ulXqxPMtvO4VodBBE1gTagfpYkgV-ycVQ2RueLHF4BPHili0bHvTIOmE7t9_FDGn1cKGXO6LQ_FWzn2k2E-4HlWSenhy1kwPT-TqsLOnxbAixOybX8lj0weKBb0EMD9XWSNEXTpm0h698LwdjHAaYNr1eITtzQk97/s1600/Lucid_Origin_masterpiece_ultrarealistic_photo_cinematic_widean_0.jpg'); 
+    background-image: linear-gradient(to bottom, rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 1)), url('https://images.weserv.nl/?url=blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRKHsockHHB9uG6QGQj8lgglohV85ulXqxPMtvO4VodBBE1gTagfpYkgV-ycVQ2RueLHF4BPHili0bHvTIOmE7t9_FDGn1cKGXO6LQ_FWzn2k2E-4HlWSenhy1kwPT-TqsLOnxbAixOybX8lj0weKBb0EMD9XWSNEXTpm0h698LwdjHAaYNr1eITtzQk97/s1600/Lucid_Origin_masterpiece_ultrarealistic_photo_cinematic_widean_0.jpg'); 
     background-size: cover;
     background-position: center;
 }
