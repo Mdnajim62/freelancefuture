@@ -3,22 +3,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- CONFIGURATION ---
     const WHATSAPP_NUMBER = "8801829994457";
     const COUNTDOWN_DURATION = (2 * 3600 + 37 * 60 + 59) * 1000;
-    const FORM_ACTION_URL = "REPLACE_WITH_YOUR_FORM_ENDPOINT_URL"; 
+    
+    // --- NOTE: Form submission is now handled by Web3Forms via HTML action attribute. ---
+    // --- No form submission JavaScript is needed anymore. ---
 
     // --- ELEMENTS ---
     const countdownEl = document.getElementById('countdown');
     const priceEl = document.getElementById('price-main');
-    const orderForm = document.getElementById('order-form');
-    const submitButton = document.getElementById('submit-button');
-    const paymentWrapper = document.querySelector('.payment-wrapper');
-    const thankYouPanel = document.getElementById('thank-you-panel');
-    const fallbackPanel = document.getElementById('fallback-panel');
-    const whatsappSupportSuccess = document.getElementById('whatsapp-support-link-success');
-    const whatsappSupportFallback = document.getElementById('whatsapp-support-link-fallback');
     const videoModal = document.getElementById('video-modal');
     const videoIframe = document.getElementById('youtube-video');
     const closeModalButton = document.querySelector('.close-button');
-    const videoPlayTriggers = document.querySelectorAll('.video-testimonial'); // Changed to querySelectorAll
+    const videoPlayTriggers = document.querySelectorAll('.video-testimonial');
 
     // --- SMOOTH SCROLL FOR CTA ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -93,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (videoPlayTriggers.length > 0) {
         videoPlayTriggers.forEach(trigger => {
             trigger.addEventListener('click', (event) => {
-                event.preventDefault(); // Prevent default link behavior if it's an anchor
+                event.preventDefault();
                 const videoId = trigger.getAttribute('data-video-id');
                 if (videoId && videoModal && videoIframe) {
                     videoIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
@@ -119,51 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
             closeModal();
         }
     });
-
-    // --- FORM SUBMISSION LOGIC ---
-    if (orderForm) {
-        orderForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            submitButton.disabled = true;
-            submitButton.textContent = 'প্রসেসিং...';
-
-            const formData = new FormData(orderForm);
-            const data = Object.fromEntries(formData.entries());
-
-            fetch(FORM_ACTION_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify(data)
-            })
-            .then(response => {
-                if (response.ok) {
-                    paymentWrapper.style.display = 'none';
-                    thankYouPanel.style.display = 'block';
-                    localStorage.removeItem('failed_submission');
-                } else {
-                    throw new Error('Network response was not ok.');
-                }
-            })
-            .catch(error => {
-                console.error('Submission Error:', error);
-                localStorage.setItem('failed_submission', JSON.stringify(data));
-                paymentWrapper.style.display = 'none';
-                fallbackPanel.style.display = 'block';
-            });
-        });
-    }
-
-    // --- WHATSAPP LINKS ---
-    if (whatsappSupportSuccess && whatsappSupportFallback) {
-         const whatsappLinkBase = `https://wa.me/${WHATSAPP_NUMBER}`;
-         whatsappSupportSuccess.href = whatsappLinkBase;
-         whatsappSupportFallback.href = whatsappLinkBase;
-    }
    
     // --- INITIALIZATION ---
     startCountdown();
-    if (localStorage.getItem('failed_submission')) {
-        paymentWrapper.style.display = 'none';
-        fallbackPanel.style.display = 'block';
-    }
 });
