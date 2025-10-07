@@ -54,7 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (distance < 0) {
                 clearInterval(interval);
                 countdownEl.textContent = "অফার শেষ";
-                if(priceEl) priceEl.textContent = "499";
+                // Update price to 499 if the offer ends as per previous logic
+                if(priceEl) priceEl.textContent = "499"; 
                 document.querySelectorAll('.cta-button').forEach(btn => {
                     btn.style.background = '#9ca3af';
                     btn.style.pointerEvents = 'none';
@@ -114,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
             closeModal();
         }
     });
-   
+    
     // --- INITIALIZATION ---
     startCountdown();
 });
