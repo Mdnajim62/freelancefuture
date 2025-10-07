@@ -6,7 +6,7 @@
     --secondary-color: #4a5568;
     --accent-color: #2563eb;
     --cta-color-start: #f97316; /* Deep Orange */
-    --cta-color-end: #f59e0b;   /* Vibrant Amber */
+    --cta-color-end: #f59e0b;    /* Vibrant Amber */
     --bg-color: #ffffff;
     --bg-light: #f8fafc;
     --bg-dark: #111827;
@@ -81,6 +81,74 @@ section { padding: 80px 0; }
 .skill-card p { color: #d1d5db; font-size: 0.9rem; line-height: 1.5; }
 .middle-cta { margin: 50px auto 0; max-width: 400px; }
 
+/* --- COURSE SCREENSHOTS SECTION --- */
+.course-screenshots-section { background-color: var(--bg-color); padding: 80px 0; }
+.screenshots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+.course-screenshots-section img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+.course-screenshots-section img:hover {
+    transform: scale(1.02);
+}
+
+/* --- COURSE DEMO SECTION --- */
+.course-demo-section {
+    background-color: var(--primary-color);
+    padding: 80px 0;
+    color: #fff;
+    text-align: center;
+}
+.course-demo-section .section-title,
+.course-demo-section .section-subtitle {
+    color: #fff;
+}
+.demo-content {
+    max-width: 800px;
+    margin: 50px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    background: rgba(255,255,255, 0.1);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255, 0.2);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+.course-list-image {
+    width: 100%;
+    max-width: 600px; /* Adjust as needed */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.demo-link {
+    background: linear-gradient(45deg, #10b981, #06b6d4); /* Teal to Cyan gradient */
+    width: auto;
+    max-width: 400px;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 20px rgba(16, 185, 129, 0.5);
+}
+.demo-link:hover {
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.7);
+}
+.demo-instruction {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #d1d5db;
+    max-width: 700px;
+}
+
 /* --- TESTIMONIALS --- */
 .testimonials-section { background-color: var(--bg-light); }
 .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
@@ -94,6 +162,13 @@ section { padding: 80px 0; }
 .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: rgba(255,255,255,0.8); backdrop-filter: blur(4px); border-radius: 50%; display: grid; place-items: center; transition: all 0.3s ease; }
 .play-button::after { content: '▶'; font-size: 24px; color: var(--cta-color-start); }
 .video-testimonial:hover .play-button { transform: translate(-50%, -50%) scale(1.1); background: #fff; }
+.testimonial-image { /* Style for the real user testimonial image */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color); /* Separator */
+}
+
 
 /* --- OFFER & GUARANTEE --- */
 .offer-section { background: var(--bg-dark); }
