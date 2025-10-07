@@ -162,11 +162,10 @@ section { padding: 80px 0; }
 .play-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: rgba(255,255,255,0.8); backdrop-filter: blur(4px); border-radius: 50%; display: grid; place-items: center; transition: all 0.3s ease; }
 .play-button::after { content: '▶'; font-size: 24px; color: var(--cta-color-start); }
 .video-testimonial:hover .play-button { transform: translate(-50%, -50%) scale(1.1); background: #fff; }
-.testimonial-image { /* Style for the real user testimonial image */
+.testimonial-screenshot-img {
     width: 100%;
     height: auto;
-    object-fit: cover;
-    border-bottom: 1px solid var(--border-color); /* Separator */
+    display: block;
 }
 
 
