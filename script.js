@@ -1,11 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // --- CONFIGURATION ---
-    const WHATSAPP_NUMBER = "8801829994457";
     const COUNTDOWN_DURATION = (2 * 3600 + 37 * 60 + 59) * 1000;
     
     // --- NOTE: Form submission is now handled by Web3Forms via HTML action attribute. ---
-    // --- No form submission JavaScript is needed anymore. ---
 
     // --- ELEMENTS ---
     const countdownEl = document.getElementById('countdown');
@@ -54,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (distance < 0) {
                 clearInterval(interval);
                 countdownEl.textContent = "অফার শেষ";
-                // Update price to 499 if the offer ends as per previous logic
                 if(priceEl) priceEl.textContent = "499"; 
                 document.querySelectorAll('.cta-button').forEach(btn => {
                     btn.style.background = '#9ca3af';
@@ -117,5 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // --- INITIALIZATION ---
-    startCountdown();
+    if (countdownEl) {
+        startCountdown();
+    }
 });
